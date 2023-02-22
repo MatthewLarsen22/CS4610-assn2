@@ -1,10 +1,10 @@
-# USU 4610 Simple Server
+# Matthew Larsen CS4610-assn2
 This project serves as a starting point for full-stack applications.
 
 ## Get Started
 ### Clone the repo
 ```bash
-git clone git@github.com:dittonjs/usu-4610-simple-server.git
+git clone git@github.com:MatthewLarsen22/CS4610-assn2.git
 ```
 Once cloned you can delete the `.git` folder and reinitialize with your own repo
 

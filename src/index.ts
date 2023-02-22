@@ -22,6 +22,23 @@ app.get("/users", async (req, res) => {
   res.json({ users });
 })
 
+app.post('/reptiles', async (req, res) => {
+    const reptile = await client.reptile.create({
+        data: {
+            userId: 1,
+            species: "ball_python",
+            name: "Parker",
+            sex: "m"
+        }
+    })
+    res.json({reptile});
+});
+
+app.get("/reptiles", async(req, res) => {
+    const reptiles = await client.reptile.findMany();
+    res.json({ reptiles });
+});
+
 app.get("/", (req, res) => {
   res.send(`<h1>Hello, world!</h1>`);
 });
