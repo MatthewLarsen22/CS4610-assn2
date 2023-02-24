@@ -1,5 +1,5 @@
 # Matthew Larsen CS4610-assn2
-This project serves as a starting point for full-stack applications.
+This is my backend for a reptile husbandry website I am making for my web dev class.
 
 ## Get Started
 ### Clone the repo
@@ -12,7 +12,7 @@ Once cloned you can delete the `.git` folder and reinitialize with your own repo
 rm -rf .git
 git init
 ```
-The create your remote repository and commit and push to it.
+Then create your remote repository and commit and push to it.
 
 ### Install the dependencies
 
@@ -28,7 +28,7 @@ npm install
 
 ## Development
 ### .env
-Copy the contents of `.env.example` into a new file called `.env`.
+Copy the contents of `.env.example` into a new file called `.env`. You will need to complete the `Encryption Key=` line with your own encryption key. I simply typed out a random combination of letters and numbers for my encryption key.
 
 ### Database
 Create the database by running
@@ -37,7 +37,7 @@ yarn db:migrate
 ```
 You will need the re-run this command anytime you make changes to the schema file.
 
-### Running thhe server
+### Running the server
 Start the server by running:
 
 With yarn
