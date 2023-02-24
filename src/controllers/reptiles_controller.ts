@@ -18,14 +18,22 @@ const getReptiles = (client: PrismaClient): RequestHandler =>
         }
 
         // Find all reptiles with the user's userId
-        const reptiles = await client.reptile.findMany({
+        const user = await client.user.findFirst({
             where: {
-                userId: userId
-            }
+                id: userId
+            },
+            include: {
+                reptiles: true,
+            },
         });
 
         // Return the list of reptiles
-        res.status(200).json({ reptiles });
+        if (user){
+            res.status(200).json( user.reptiles );
+        }
+        else {
+            res.status(400).json({ message: "Invalid user" });
+        }
     }
 
 type CreateReptileBody = {
@@ -81,7 +89,7 @@ const getReptile = (client: PrismaClient): RequestHandler =>
             const reptile = await client.reptile.findFirst({
                 where: {
                     id: reptileId
-                }
+                },
             });
 
             // Verify user is authorized to access reptile data

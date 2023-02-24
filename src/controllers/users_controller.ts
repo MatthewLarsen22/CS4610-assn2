@@ -16,7 +16,7 @@ const getMe = (client: PrismaClient): RequestHandler =>
         const user = await client.user.findFirst({
             where: {
                 id: userId
-            }
+            },
         });
 
         res.json({ user })

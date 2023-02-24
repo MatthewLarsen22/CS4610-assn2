@@ -16,29 +16,29 @@ model User {
   lastName String
   email String @unique
   passwordHash String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
   reptiles Reptile[]
   schedules Schedule[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Reptile {
     id Int @id @default(autoincrement())
-    user User @relation(fields: [userId], references: [id])
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId Int
     species String
     name String
     sex String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
     feedings Feeding[]
     husbandryRecords HusbandryRecord[]
     schedules Schedule[]
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
 
 model Feeding {
     id Int @id @default(autoincrement())
-    reptile Reptile @relation(fields: [reptileId], references: [id])
+    reptile Reptile @relation(fields: [reptileId], references: [id], onDelete: Cascade)
     reptileId Int
     foodItem String
     createdAt DateTime @default(now())
@@ -47,7 +47,7 @@ model Feeding {
 
 model HusbandryRecord {
     id Int @id @default(autoincrement())
-    reptile Reptile @relation(fields: [reptileId], references: [id])
+    reptile Reptile @relation(fields: [reptileId], references: [id], onDelete: Cascade)
     reptileId Int
     length Float
     weight Float
@@ -59,9 +59,9 @@ model HusbandryRecord {
 
 model Schedule {
     id Int @id @default(autoincrement())
-    reptile Reptile @relation(fields: [reptileId], references: [id])
+    reptile Reptile @relation(fields: [reptileId], references: [id], onDelete: Cascade)
     reptileId Int
-    user User @relation(fields: [userId], references: [id])
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId Int
     type String
     description String

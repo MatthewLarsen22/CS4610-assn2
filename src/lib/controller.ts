@@ -10,7 +10,7 @@ export type Route = {
 }
 
 export const controller = (name: string, routes: Route[]) => (app: Express, client: PrismaClient) => {
-    const router = express.Router();
+    const router = express.Router({mergeParams: true});
     routes.forEach(route => {
         if (!route.skipAuth) {
             router.use(route.path, (req, res, next) => {

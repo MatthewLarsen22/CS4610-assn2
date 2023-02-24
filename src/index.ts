@@ -7,6 +7,8 @@ import jwt from "jsonwebtoken";
 import { JWTBody, RequestWithJWTBody } from "./dto/jwt";
 import { usersController } from "./controllers/users_controller";
 import { reptilesController } from "./controllers/reptiles_controller";
+import { feedingsController } from "./controllers/feedings_controller";
+import { husbandryRecordsController } from "./controllers/husbandry_records_controller";
 
 dotenv.config();
 const client = new PrismaClient();
@@ -55,6 +57,8 @@ app.post("/sessions", async (req, res) => {
 
 usersController(app, client);
 reptilesController(app, client);
+feedingsController(app, client);
+husbandryRecordsController(app, client);
 
 app.get("/", (req, res) => {
   res.send(`<h1>Hello, world!</h1>`);
