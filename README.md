@@ -33,7 +33,7 @@ Copy the contents of `.env.example` into a new file called `.env`. You will need
 ### Database
 Create the database by running
 ```bash
-yarn db:migrate
+yarn migrate
 ```
 You will need the re-run this command anytime you make changes to the schema file.
 
