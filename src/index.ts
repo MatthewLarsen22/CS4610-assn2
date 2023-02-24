@@ -9,6 +9,7 @@ import { usersController } from "./controllers/users_controller";
 import { reptilesController } from "./controllers/reptiles_controller";
 import { feedingsController } from "./controllers/feedings_controller";
 import { husbandryRecordsController } from "./controllers/husbandry_records_controller";
+import { schedulesController } from "./controllers/schedules_controller";
 
 dotenv.config();
 const client = new PrismaClient();
@@ -59,6 +60,7 @@ usersController(app, client);
 reptilesController(app, client);
 feedingsController(app, client);
 husbandryRecordsController(app, client);
+schedulesController(app, client);
 
 app.get("/", (req, res) => {
   res.send(`<h1>Hello, world!</h1>`);
